@@ -39,7 +39,7 @@ const teamMembers = [
     name: "Amaan Siddiqui",
     role: "Digital Marketing Strategist",
     bio: "Growth hacker with 9+ years driving business results through data-driven marketing campaigns.",
-    avatar: "https://media.licdn.com/dms/image/v2/D5635AQFbRbjDYncM2Q/profile-framedphoto-shrink_400_400/B56Zf4.X4sGoAc-/0/1752228791116?e=1754668800&v=beta&t=6g1DN-1bzw-aOX5u51ZKnlndKjSeLEkNhtk6nv4zgOM",
+    avatar: "https://media.licdn.com/dms/image/v2/D5635AQFbRbjDYncM2Q/profile-framedphoto-shrink_400_400/B56Zf4.X4sGoAc-/0/1752228791116?e=1756202400&v=beta&t=wlLsxFgw2YXRTOQNUJrXD1e_Mk5aONnHociZ50722sk",
     skills: ["SEO", "Google Ads", "Analytics", "Content Strategy"],
     achievements: ["Generated $50M+ in client revenue", "Google Ads Certified Expert"],
     social: {
