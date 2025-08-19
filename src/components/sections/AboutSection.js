@@ -3,75 +3,48 @@ import {
   Award, Users, Rocket, Target,
   Globe2, MessageCircleQuestion, Shield, LayoutDashboard, ClipboardList,
   Megaphone, FolderKanban, FileCog, Wrench, ShoppingBag, BarChart3,
-  PenLine, Image, Phone, UserCog, MonitorSmartphone, Search, TrendingUp
+  PenLine, Image, Phone, UserCog, MonitorSmartphone, Search, TrendingUp,
+  Mail, FileText, Code, Smartphone, Monitor, Database, Zap, Settings
 } from 'lucide-react';
 
-
-// ================== ONLINE SERVICES DATA ==================
+// ==== ONLINE SERVICES DATA ====
 const onlineServices = [
-  { icon: MessageCircleQuestion, label: 'Support', description: "Round-the-clock customer support tailored to resolve issues quickly and efficiently." },
-  { icon: Shield, label: 'Security', description: "Protect your digital assets with robust, enterprise-grade cybersecurity solutions." },
-  { icon: LayoutDashboard, label: 'Dashboard', description: "Gain insights and manage performance with interactive, real-time dashboards." },
-  { icon: ClipboardList, label: 'Management', description: "Streamline processes and boost efficiency with intelligent management tools." },
-  { icon: Megaphone, label: 'Broadcast', description: "Amplify your message and engage your audience with multi-channel broadcasting solutions." },
-
-  // Center Highlight Service
-  { icon: Wrench, label: 'Global Tool', description: "Your universal digital toolkit that simplifies workflows and accelerates growth.", isCenter: true },
-
-  { icon: FolderKanban, label: 'Folders', description: "Organize, manage, and collaborate on projects with structured document storage." },
-  { icon: FileCog, label: 'Settings', description: "Personalize your digital ecosystem with advanced customizable settings." },
-  { icon: PenLine, label: 'Edit', description: "Create, edit, and modify digital assets seamlessly with powerful editing tools." },
-  { icon: ShoppingBag, label: 'Shopping', description: "Seamless eCommerce solutions for smarter shopping experiences." },
-  { icon: BarChart3, label: 'Analytics', description: "Track performance and uncover insights with advanced analytics and reporting." },
-  { icon: Globe2, label: 'Explore', description: "Discover opportunities across borders with our exploration and expansion tools." },
-  { icon: Image, label: 'Gallery', description: "Store, manage, and share creative assets in a beautifully simple media gallery." },
-  { icon: Phone, label: 'TeleCall', description: "Reliable telecommunication solutions designed for effective client engagement." },
-  { icon: UserCog, label: 'Team', description: "Empower collaboration with tools built for modern, agile teams." },
-  { icon: Rocket, label: 'Growth', description: "Accelerate your brand growth with data-driven strategies and automation." },
-
-  // NEW SERVICES
+  // Digital Marketing Services
   { icon: MonitorSmartphone, label: 'Social Media Marketing', description: "Transform your social presence into a powerful tool for engagement, conversion, and brand loyalty." },
   { icon: BarChart3, label: 'Media Planning & Buying', description: "Maximize your reach with strategic media buys that deliver optimal ROI across every platform." },
   { icon: Search, label: 'Search Engine Marketing (SEM)', description: "Boost your visibility and conversions with expertly managed PPC campaigns that drive measurable results." },
-  { icon: TrendingUp, label: 'SEO (Search Engine Optimization)', description: "Rank higher, attract more traffic, and convert leads with a tailored SEO strategy that works." }
+  { icon: TrendingUp, label: 'SEO (Search Engine Optimization)', description: "Rank higher, attract more traffic, and convert leads with a tailored SEO strategy that works." },
+  { icon: FileText, label: 'Content Marketing', description: "Create content that not only attracts but also nurtures and converts your audience." },
+  { icon: Mail, label: 'Email Marketing', description: "Drive customer engagement and conversions with personalized email campaigns that resonate." },
+  { icon: BarChart3, label: 'Analytics & Reporting', description: "Gain actionable insights with in-depth analytics that help you optimize your marketing strategy." },
+  { icon: Shield, label: 'Brand Strategy', description: "Craft a brand story that resonates and connects with your audience on a deeper level." },
+  { icon: Target, label: 'Conversion Rate Optimization (CRO)', description: "Turn website visitors into loyal customers with strategies designed to maximize conversions." },
+  
+  // Software & Web Development Services
+  { icon: Code, label: 'Custom Software Development', description: "Build scalable, robust software solutions tailored to your specific business needs and requirements." },
+  { icon: Monitor, label: 'Web Application Development', description: "Create powerful, responsive web applications that deliver exceptional user experiences across all devices." },
+  { icon: Smartphone, label: 'Mobile App Development', description: "Develop native and cross-platform mobile applications that engage users and drive business growth." },
+  { icon: Globe2, label: 'Website Development', description: "Design and develop modern, fast-loading websites that convert visitors into customers." },
+  { icon: Database, label: 'Database Design & Management', description: "Optimize your data architecture with secure, scalable database solutions for better performance." },
+  { icon: Zap, label: 'API Development & Integration', description: "Connect your systems seamlessly with custom APIs and third-party integrations for enhanced functionality." },
+  { icon: Settings, label: 'Software Maintenance & Support', description: "Keep your applications running smoothly with ongoing maintenance, updates, and technical support." }
 ];
 
-
-// ================== ONLINE SERVICE ICON CARD ==================
+// ==== ONLINE SERVICE ICON CARD ====
 function OnlineServiceCard({ service }) {
   const Icon = service.icon;
-
-  // Center Highlight style
-  if (service.isCenter) {
-    return (
-      <div className="flex flex-col items-center justify-start group cursor-pointer text-center">
-        <div className="relative bg-blue-600/80 rounded-xl w-16 h-16 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-          <Globe2 size={32} className="text-white absolute opacity-40 group-hover:opacity-100 transition-opacity duration-300" style={{ zIndex: 1 }} />
-          <Icon size={26} className="text-white relative z-10" />
-        </div>
-        <span className="mt-2 text-sm font-bold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 transition-colors duration-300">
-          {service.label}
-        </span>
-        {service.description && (
-          <p className="hidden group-hover:block mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-[160px] transition-opacity duration-300">
-            {service.description}
-          </p>
-        )}
-      </div>
-    );
-  }
-
-  // Normal Service Card
+  
+  // Service Card with larger icons
   return (
     <div className="flex flex-col items-center justify-start group cursor-pointer text-center">
-      <div className="bg-white dark:bg-black rounded-xl w-16 h-16 border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:border-transparent">
-        <Icon size={32} className="text-gray-900 dark:text-white group-hover:text-white transition-colors duration-300" />
+      <div className="bg-white dark:bg-black rounded-xl w-24 h-24 border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:border-transparent">
+        <Icon size={48} className="text-gray-900 dark:text-white group-hover:text-white transition-colors duration-300" />
       </div>
-      <span className="mt-2 text-sm font-bold text-gray-700 dark:text-gray-200 group-hover:text-pink-500 transition-colors duration-300">
+      <span className="mt-3 text-sm font-bold text-white-700 dark:text-white-200 group-hover:text-pink-500 transition-colors duration-300">
         {service.label}
       </span>
       {service.description && (
-        <p className="hidden group-hover:block mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed max-w-[160px] transition-opacity duration-300">
+        <p className="hidden group-hover:block mt-3 text-xs text-white-500 dark:text-white-400 leading-relaxed max-w-[180px] transition-opacity duration-300">
           {service.description}
         </p>
       )}
@@ -79,11 +52,9 @@ function OnlineServiceCard({ service }) {
   );
 }
 
-
-// ================== CUSTOM HOOK (Intersection) ==================
+// ==== CUSTOM HOOK (Intersection) ====
 function useInView(ref, options = {}) {
   const [isIntersecting, setIntersecting] = useState(false);
-
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -92,12 +63,10 @@ function useInView(ref, options = {}) {
     observer.observe(ref.current);
     return () => { if (ref.current) observer.unobserve(ref.current); };
   }, [ref, options]);
-
   return isIntersecting;
 }
 
-
-// ================== STATS CARD ==================
+// ==== STATS CARD ====
 function StatCard({ stat, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { threshold: 0.3 });
@@ -122,8 +91,7 @@ function StatCard({ stat, index }) {
   );
 }
 
-
-// ================== MILESTONE CARD ==================
+// ==== MILESTONE CARD ====
 function MilestoneCard({ milestone, index, isActive }) {
   const isLeft = index % 2 === 0;
   const ref = useRef(null);
@@ -156,7 +124,6 @@ function MilestoneCard({ milestone, index, isActive }) {
           z-20
         `}
       />
-
       {/* Content card */}
       <div
         className={`
@@ -179,8 +146,7 @@ function MilestoneCard({ milestone, index, isActive }) {
   );
 }
 
-
-// ================== MAIN ABOUT SECTION ==================
+// ==== MAIN ABOUT SECTION ====
 const AboutSection = () => {
   const stats = [
     { icon: Users, number: '100K+', label: 'Active Users', color: 'from-blue-500 to-cyan-500' },
@@ -188,7 +154,7 @@ const AboutSection = () => {
     { icon: Rocket, number: '99.9%', label: 'Uptime', color: 'from-green-500 to-emerald-500' },
     { icon: Target, number: '150+', label: 'Countries', color: 'from-purple-500 to-pink-500' },
   ];
-
+  
   const milestones = [
     { year: '2020', title: 'Foundation', description: 'Started with a vision to revolutionize digital experiences by integrating cutting-edge technology and strategic marketing.' },
     { year: '2021', title: 'Growth', description: 'Reached 20K users and expanded globally, driving innovation in combined tech and marketing solutions.' },
@@ -197,10 +163,10 @@ const AboutSection = () => {
     { year: '2024', title: 'Future', description: 'Leading the next generation of immersive technology and data-driven marketing strategies.' },
     { year: '2025', title: 'Expansion', description: 'Going bigger by helping more customers harness technology, marketing, and AI to accelerate growth and innovation.' },
   ];
-
+  
   const [activeIndex, setActiveIndex] = useState(null);
   const milestoneRefs = useRef([]);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight * 0.75;
@@ -219,22 +185,21 @@ const AboutSection = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   const setMilestoneRef = (el, index) => {
     milestoneRefs.current[index] = el;
   };
-
+  
   return (
     <section id="about" className="relative py-20 px-4">
       <div className="max-w-7xl mx-auto">
-
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2
             className="text-4xl md:text-6xl font-bold mb-6 text-gradient"
             style={{ opacity: 0, transform: 'translateY(20px)', animation: 'fadeSlideUp 0.8s forwards' }}
           >
-            About Netzwert
+            Netzwert Services
           </h2>
           <p
             className="text-xl text-gray-400 max-w-3xl mx-auto"
@@ -243,32 +208,26 @@ const AboutSection = () => {
             We're pioneering the future of digital experiences through innovative technology, strategic marketing, exceptional design, and an unwavering commitment to user satisfaction.
           </p>
         </div>
-
-        {/* ===== SERVICES SECTION ===== */}
+        
+        {/* = SERVICES SECTION = */}
         <div className="mb-24">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
-            {/* Left Info */}
-            <div className="lg:w-1/3 relative">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h3>
-              <span className="text-7xl font-white text-white-700/30 absolute -top-6 -left-2 select-none">{onlineServices.length}</span>
-            </div>
-
-            {/* Icon Grid */}
-            <div className="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
+          <div className="w-full">                       
+            {/* Icon Grid - Full Width */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 justify-items-center">
               {onlineServices.map((service, idx) => (
                 <OnlineServiceCard key={idx} service={service} />
               ))}
             </div>
           </div>
         </div>
-
+        
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
             <StatCard key={index} stat={stat} index={index} />
           ))}
         </div>
-
+        
         {/* Story Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div className="opacity-0 translate-x-[-40px]" style={{ animation: 'slideFadeInLeft 0.8s forwards' }}>
@@ -280,7 +239,6 @@ const AboutSection = () => {
                 By combining cutting-edge technology with strategic, data-driven marketing and human-centered design, we build impactful solutions that drive real business growth. Every project is a chance to push boundaries and deliver measurable results.
             </p>
           </div>
-
           <div className="relative opacity-0 translate-x-[40px]" style={{ animation: 'slideFadeInRight 0.8s forwards' }}>
             <div className="relative w-full h-80 rounded-2xl glass-morphism overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
@@ -301,9 +259,9 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-
-        {/* ===== CLIENTS LOGO SECTION ===== */}
-        <div className="mb-20">
+        
+        {/* = CLIENTS LOGO SECTION = */}
+        <div className="mb-0">
           <h3 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">Clients we have worked</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-center">
             <img src="https://mrmechanic.co/static/media/mrmechanics-logo.1133374bdc3106a01cfd.png" alt="Client 1" className="mx-auto grayscale hover:grayscale-0 transition" />
@@ -313,29 +271,27 @@ const AboutSection = () => {
             <img src="https://www.rtoxpert.com/static/media/rtoxpertLogo.c75aa58572ed90aeba16.png" alt="Client 5" className="mx-auto grayscale hover:grayscale-0 transition" />
           </div>
         </div>
-
-        {/* ===== IMMERSIVE OUR JOURNEY TIMELINE ===== */}
-        <div className="relative mt-10">
-            <h3
+        
+        {/* = IMMERSIVE OUR JOURNEY TIMELINE = */}
+        {/* <div className="relative mt-10"> */}
+            {/* <h3
                 className="text-4xl md:text-5xl font-bold text-center text-white mb-16 tracking-wide drop-shadow-lg"
                 style={{ opacity: 0, transform: 'translateY(20px)', animation: 'fadeSlideUp 0.8s forwards' }}
             >
                 Our Journey
-            </h3>
-
+            </h3> */}
             {/* Vertical timeline bar */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full rounded-full bg-gradient-to-b from-purple-500 to-pink-500 shadow-lg"></div>
-
+            {/* <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full rounded-full bg-gradient-to-b from-purple-500 to-pink-500 shadow-lg"></div>
             <div className="space-y-24">
                 {milestones.map((milestone, index) => (
                 <div key={index} ref={(el) => setMilestoneRef(el, index)}>
                     <MilestoneCard milestone={milestone} index={index} isActive={index === activeIndex} />
                 </div>
                 ))}
-            </div>
-        </div>
+            </div> */}
+        {/* </div> */}
       </div>
-
+      
       {/* Inline keyframes for fade-slide effects */}
       <style>{`
         @keyframes fadeSlideUp {

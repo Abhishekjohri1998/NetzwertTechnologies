@@ -87,16 +87,16 @@ const HeroSection = ({
         </h2>
 
           <p
-            className="text-xl md:text-2xl mb-6 text-gray-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up"
+            className="text-xl md:text-2xl mb-6 text-white-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.3s" }}
           >
             Lost in the digital maze? Stop the endless guessing and let us show you the way. Get a custom Web-App and Performance Marketing plan powered by AI that actually works for your business.
           </p>
           <p
-            className="text-xl md:text-2xl mb-12 text-gray-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up"
+            className="text-xl md:text-2xl mb-12 text-white-400 max-w-3xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up"
             style={{ animationDelay: "0.45s" }}
           >
-           With over 500+ successful projects and counting, we combine smart AI technology, expert marketing strategies, and cutting-edge web/app solutions to help you achieve real growth – no fluff, just results.
+           With over 900+ successful projects and counting, we combine smart AI technology, expert marketing strategies, and cutting-edge web/app solutions to help you achieve real growth – no fluff, just results.
           </p>
           {/* <div
             className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center animate-fade-in-up"
