@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useScrollPosition } from "./hooks/useScrollPosition";
 import { useMousePosition } from "./hooks/useMousePosition";
+import ReactGA from 'react-ga4';
+import { useLocation } from 'react-router-dom';
 
 // Component imports
 import Header from "./components/common/Header";
@@ -16,11 +18,27 @@ import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 import "./App.css";
 
+// Custom hook to track page views
+function usePageViews() {
+  const location = useLocation();
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+}
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollPosition = useScrollPosition();
   const mousePosition = useMousePosition();
+
+  // Initialize GA only once
+  useEffect(() => {
+    ReactGA.initialize('G-GL9T0VWLZ4');
+  }, []);
+
+  // Track page views on route changes
+  usePageViews();
 
   useEffect(() => {
     // Simulate initial loading
